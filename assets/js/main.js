@@ -114,21 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
     aos_init();
   });
 
-  // $(".card .btn").on("click", function () {
-  //   $(this).toggleClass("up");
-  //   $(this).find("img").toggleClass("rotate-180");
-  //   $(this).closest(".card").find(".content").toggleClass("up");
-  // });
-
   $(".card .btn").on("click", function () {
-    $(this).toggleClass("up");
+    var $thisWrap = $(this).closest(".wrap");
+    $thisWrap.toggleClass("up");
+    $(".wrap").not($thisWrap).removeClass("up");
     $(this).find("img").toggleClass("rotate-180");
-    $(this).closest(".card").find(".content").toggleClass("up");
-    window.requestAnimationFrame(() => {
-      $(this).addClass("animated");
-    });
-    window.requestAnimationFrame(() => {
-      $(this).removeClass("animated");
-    });
   });
 });
