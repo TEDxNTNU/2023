@@ -493,7 +493,7 @@ section {
     }
     p {
       color: #fff;
-      text-align: initial;
+      text-align: justify;
     }
   }
 }
@@ -547,6 +547,7 @@ section {
           margin-bottom: 15px;
         }
         p {
+          text-align: justify;
           span {
             color: var(--color-secondary);
             margin: 0 3px;
@@ -605,6 +606,9 @@ section {
           overflow-y: auto;
           position: absolute;
           height: calc(100% - 40px);
+          h2 {
+            text-align: center;
+          }
         }
         &.up {
           top: 40px;

@@ -437,7 +437,7 @@ section {
 }
 #about .section-header p {
   color: #fff;
-  text-align: initial;
+  text-align: justify;
 }
 
 /*--------------------------------------------------------------
@@ -486,6 +486,9 @@ section {
 #theme .card .wrap .content h2 {
   font-weight: 900;
   margin-bottom: 15px;
+}
+#theme .card .wrap .content p {
+  text-align: justify;
 }
 #theme .card .wrap .content p span {
   color: var(--color-secondary);
@@ -543,6 +546,9 @@ section {
     overflow-y: auto;
     position: absolute;
     height: calc(100% - 40px);
+  }
+  #theme .card .wrap .content h2 {
+    text-align: center;
   }
   #theme .card .wrap.up {
     top: 40px;
