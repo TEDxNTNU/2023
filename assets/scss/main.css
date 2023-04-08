@@ -536,9 +536,9 @@ section {
   }
   #theme .card .wrap .content {
     background: var(--color-primary);
-    width: 100%;
-    padding: 20px;
-    border-radius: 20px;
+    width: calc(100% - 40px);
+    padding: 20px 0;
+    margin: 0 20px;
     overflow-y: auto;
     position: absolute;
     height: calc(100% - 40px);
