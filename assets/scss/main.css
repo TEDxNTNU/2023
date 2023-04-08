@@ -453,7 +453,6 @@ section {
   gap: 30px;
 }
 #theme .card {
-  overflow: hidden;
   display: flex;
   flex-direction: row;
   padding: 30px;
@@ -499,6 +498,7 @@ section {
   #theme .card {
     flex-direction: column;
     padding: 20px;
+    overflow: hidden;
   }
   #theme .card .img {
     width: 100%;
