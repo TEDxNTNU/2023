@@ -640,6 +640,10 @@ section {
 #posts .title a:hover {
   color: var(--color-primary);
 }
+#posts .history-information {
+  height: 300px;
+  overflow: auto;
+}
 
 /*--------------------------------------------------------------
   # Footer

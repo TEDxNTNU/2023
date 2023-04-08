@@ -114,14 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     aos_init();
   });
 
-  $(".card-wrap").hover(
-    function () {
-      $(".card-wrap:not(:hover)").css("display", "none");
-    },
-    function () {
-      $(".card-wrap").css("display", "");
-    }
-  );
   $(".card .btn").on("click", function () {
     $(this).toggleClass("up");
     $(this).find("img").toggleClass("rotate-180");
