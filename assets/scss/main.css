@@ -484,6 +484,7 @@ section {
 }
 #theme .card .wrap .content h2 {
   font-weight: 900;
+  margin-bottom: 15px;
 }
 #theme .card .wrap .content p span {
   color: var(--color-secondary);
