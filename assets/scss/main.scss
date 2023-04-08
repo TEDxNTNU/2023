@@ -513,6 +513,7 @@ section {
     gap: 30px;
   }
   .card {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     padding: 30px;
@@ -562,7 +563,6 @@ section {
     .card {
       flex-direction: column;
       padding: 20px;
-      overflow: hidden;
       .img {
         width: 100%;
         img {
