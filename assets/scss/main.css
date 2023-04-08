@@ -489,6 +489,7 @@ section {
 }
 #theme .card .wrap .content p span {
   color: var(--color-secondary);
+  margin: 0 3px;
 }
 @media (max-width: 1000px) {
   #theme .cards {
