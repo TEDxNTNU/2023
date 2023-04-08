@@ -1,0 +1,802 @@
+:root {
+  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Poppins", sans-serif;
+  --color-default: #000000;
+  --color-primary: #000000;
+  --color-secondary: #ff2c00;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/*--------------------------------------------------------------
+  # General
+  --------------------------------------------------------------*/
+body {
+  font-family: var(--font-default);
+  color: var(--color-default);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+}
+
+/*--------------------------------------------------------------
+  # Sections & Section Header
+  --------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-header {
+  padding-bottom: 60px;
+  text-align: center;
+}
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.section-header h2:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-secondary);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.section-header h2 span {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+.section-header p {
+  margin-bottom: 0;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+.section-header p span {
+  color: var(--color-secondary);
+  margin: 0 3px;
+}
+
+/*--------------------------------------------------------------
+  # Scroll top button
+  --------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background: var(--color-secondary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+.scroll-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+.scroll-top:hover {
+  background: var(--color-secondary);
+  color: #fff;
+}
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+  # Preloader
+  --------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.6s ease-out;
+}
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #fff;
+  border-color: var(--color-primary) transparent var(--color-primary) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+#preloader .logo {
+  width: 60%;
+  position: fixed;
+  top: calc(50% - 120px);
+  left: 20%;
+  display: inline;
+  text-align: center;
+}
+#preloader .logo h1 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+}
+#preloader .logo h1 span {
+  color: var(--color-secondary);
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+/*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  height: 90px;
+  background-color: var(--color-primary);
+}
+#header.sticked {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 70px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+}
+#header .logo img {
+  max-height: 40px;
+  margin-right: 6px;
+}
+#header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #fff;
+  font-family: var(--font-primary);
+}
+#header .logo h1 span {
+  color: var(--color-secondary);
+}
+
+.sticked-header-offset {
+  margin-top: 70px;
+}
+
+section {
+  scroll-margin-top: 70px;
+}
+
+/*--------------------------------------------------------------
+  # Desktop Navigation
+  --------------------------------------------------------------*/
+@media (min-width: 1280px) {
+  .navbar {
+    padding: 0;
+  }
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  .navbar li {
+    position: relative;
+    white-space: nowrap;
+    padding: 10px 0 10px 28px;
+  }
+  .navbar a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3px;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3px;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+  .navbar a:hover:before {
+    visibility: visible;
+    width: 100%;
+  }
+  .navbar > ul > li > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: var(--color-secondary);
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  .navbar li:hover > a:before,
+  .navbar .active:before {
+    visibility: visible;
+    width: 100%;
+  }
+  .navbar a:hover {
+    color: #fff;
+  }
+  .navbar .active {
+    color: #fff;
+  }
+  .navbar .active:focus {
+    color: #fff;
+  }
+  .navbar li:hover > a {
+    color: #fff;
+  }
+  .mobile-nav-show,
+  .mobile-nav-hide {
+    display: none;
+  }
+}
+/*--------------------------------------------------------------
+  # Mobile Navigation
+  --------------------------------------------------------------*/
+@media (max-width: 1279px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 250px;
+    bottom: 0;
+    transition: 0.3s;
+    z-index: 9997;
+  }
+  .navbar ul {
+    position: absolute;
+    inset: 0;
+    padding: 50px 0 10px 0;
+    margin: 0;
+    background: var(--color-secondary);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+  }
+  .navbar a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  .navbar a i, .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+  .navbar a:hover {
+    color: #fff;
+  }
+  .navbar .active {
+    color: #fff;
+  }
+  .navbar .active:focus {
+    color: #fff;
+  }
+  .navbar li:hover > a {
+    color: #fff;
+  }
+  .mobile-nav-show {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+    z-index: 9999;
+    margin-right: 10px;
+  }
+  .mobile-nav-hide {
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+  }
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+  .mobile-nav-active .navbar {
+    right: 0;
+  }
+  .mobile-nav-active .navbar:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--color-primary);
+    opacity: 0.5;
+    z-index: 9996;
+  }
+}
+/*--------------------------------------------------------------
+  # Hero Section
+  --------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  position: relative;
+  background: #3a5e85;
+  padding: 60px 0 0 0;
+}
+#hero img {
+  width: 100%;
+}
+
+@media (min-width: 1365px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+/*--------------------------------------------------------------
+  # About Section
+  --------------------------------------------------------------*/
+#about {
+  padding: 60px 0 0 0;
+  background-color: var(--color-primary);
+}
+#about .section-header h2 {
+  color: #fff;
+  font-size: 36px;
+  font-style: oblique;
+}
+#about .section-header h1 {
+  color: #fff;
+  font-style: oblique;
+  font-weight: 900;
+  font-size: 45px;
+}
+#about .section-header p {
+  color: #fff;
+  text-align: initial;
+}
+
+/*--------------------------------------------------------------
+  #Theme Section
+  --------------------------------------------------------------*/
+@media (max-width: 900px) {
+  #theme .section-header {
+    padding: 0;
+  }
+}
+#theme .cards {
+  margin-left: 70px;
+  gap: 30px;
+}
+#theme .card {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  gap: 0 30px;
+  background: var(--color-primary);
+  color: #fff;
+  align-items: center;
+  border-radius: 20px;
+  transition: all 0.5s ease-out;
+}
+#theme .card .img {
+  width: 30%;
+}
+#theme .card .img img {
+  width: 120%;
+  left: -80px;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #000;
+}
+#theme .card .btn {
+  display: none;
+  background: var(--color-primary);
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  border-radius: 50% 50% 20px 20px;
+}
+#theme .card .content {
+  width: 70%;
+  overflow-y: hidden;
+}
+#theme .card .content h2 {
+  font-weight: 900;
+}
+#theme .card .content p span {
+  color: var(--color-secondary);
+}
+@media (max-width: 1000px) {
+  #theme .cards {
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  #theme .card {
+    flex-direction: column;
+    padding: 20px;
+  }
+  #theme .card .img {
+    width: 100%;
+  }
+  #theme .card .img img {
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #000;
+  }
+  #theme .card .btn {
+    display: block;
+    box-shadow: 0px -3px 5px #fff;
+    transition: none;
+  }
+  #theme .card .btn.up {
+    top: 40px;
+    border-radius: 50% 50% 0 0;
+  }
+  #theme .card .btn:active {
+    border: none;
+  }
+  #theme .card .content {
+    background: var(--color-primary);
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 20px;
+    height: calc(100% - 80px);
+    overflow-y: auto;
+    bottom: -1000%;
+  }
+  #theme .card .content.up {
+    top: 80px;
+  }
+}
+
+/*--------------------------------------------------------------
+  # Frequently Asked Questions Section
+  --------------------------------------------------------------*/
+#faq .content h3 {
+  font-weight: 400;
+  font-size: 34px;
+}
+#faq .content h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+#faq .content p {
+  font-size: 15px;
+  color: #9c9c9c;
+}
+#faq .accordion-item {
+  border: 0;
+  margin-bottom: 20px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+}
+#faq .accordion-item:last-child {
+  margin-bottom: 0;
+}
+#faq .accordion-collapse {
+  border: 0;
+}
+#faq .accordion-button {
+  padding: 20px 50px 20px 20px;
+  font-weight: 600;
+  border: 0;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-default);
+  text-align: left;
+  background: #fff;
+  box-shadow: none;
+  border-radius: 10px;
+}
+#faq .accordion-button .num {
+  padding-right: 10px;
+  font-size: 20px;
+  line-height: 0;
+  color: var(--color-primary);
+}
+#faq .accordion-button:not(.collapsed) {
+  color: var(--color-primary);
+  border-bottom: 0;
+  box-shadow: none;
+}
+#faq .accordion-button:after {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+#faq .accordion-body {
+  padding: 0 40px 30px 45px;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: none;
+}
+
+/*--------------------------------------------------------------
+  # Posts Section
+  --------------------------------------------------------------*/
+#posts article {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 30px;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#posts .post-img {
+  max-height: 240px;
+  margin: -30px -30px 15px -30px;
+  overflow: hidden;
+}
+#posts .post-category {
+  font-size: 16px;
+  color: #9c9c9c;
+  margin-bottom: 10px;
+}
+#posts .title {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+#posts .title a {
+  color: var(--color-default);
+  transition: 0.3s;
+}
+#posts .title a:hover {
+  color: var(--color-primary);
+}
+
+/*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+.footer {
+  font-size: 14px;
+  background-color: var(--color-primary);
+  padding: 50px 0;
+  color: white;
+}
+.footer .footer-info span {
+  color: var(--color-secondary);
+  font-family: var(--font-primary);
+}
+.footer .footer-info p {
+  font-size: 14px;
+  font-family: var(--font-primary);
+}
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.footer .social-links a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.footer .footer-links {
+  margin-bottom: 30px;
+}
+.footer .footer-links h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer .footer-links ul i {
+  padding-right: 2px;
+  color: rgba(0, 131, 116, 0.8);
+  font-size: 12px;
+  line-height: 0;
+}
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+.footer .footer-links ul a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+.footer .footer-links ul a:hover {
+  color: #fff;
+}
+
+#ticket-box {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: fixed;
+  bottom: 15px;
+  z-index: 100;
+  background: var(--color-secondary);
+  border-radius: 0 6px 6px 0;
+  writing-mode: vertical-lr;
+  padding: 10px 5px;
+}
+#ticket-box a {
+  color: #fff;
+}
+#ticket-box p {
+  font-size: 10px;
+  font-weight: 900;
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+  # About TEDxNTNU Section
+  --------------------------------------------------------------*/
+#ATN .atn-item p,
+#ATN .atn-item ol {
+  text-align: initial;
+}
+#ATN .atn-item ol {
+  list-style: cjk-ideographic;
+}
+
+@media (min-width: 1280px) {
+  .atn-item {
+    padding: 60px;
+  }
+}
+@media (max-width: 1280px) {
+  .atn-item {
+    padding: 30px;
+  }
+}
+#early-bird p,
+#early-bird ul {
+  text-align: initial;
+}
+#early-bird h5 {
+  font-weight: 900;
+  color: var(--color-secondary);
+}
+#early-bird ul {
+  list-style: none;
+  text-align: initial;
+  text-indent: -1.5em;
+}
+#early-bird ul span {
+  font-weight: 600;
+}
+#early-bird > .section-header > ul > li {
+  margin-bottom: 10px;
+}
+
+#ted .section-header > p:first-of-type {
+  font-weight: 900;
+}
+
+@media (min-width: 1280px) {
+  #ted .section-header {
+    padding: 60px;
+  }
+}
+@media (max-width: 1280px) {
+  #ted .section-header {
+    padding: 30px;
+  }
+}
+#hero_tedxntnu {
+  padding-bottom: 0 !important;
+}
+
+#INFO .section-header .info-item img {
+  width: 100%;
+}
+#INFO .section-header .info-item h3 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-top: 20px;
+}/*# sourceMappingURL=main.css.map */
