@@ -474,6 +474,7 @@ section {
   box-shadow: 0 0 15px #000;
 }
 #theme .card .wrap {
+  overflow: hidden;
   width: 70%;
 }
 #theme .card .wrap .btn {
@@ -510,7 +511,6 @@ section {
     box-shadow: 0 0 15px #000;
   }
   #theme .card .wrap {
-    overflow: hidden;
     width: 100%;
     padding-top: 5px;
     height: calc(100% - 60px);

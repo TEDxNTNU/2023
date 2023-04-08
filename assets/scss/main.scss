@@ -533,6 +533,7 @@ section {
       }
     }
     .wrap {
+      overflow: hidden;
       width: 70%;
       .btn {
         display: none;
@@ -573,7 +574,6 @@ section {
         }
       }
       .wrap {
-        overflow: hidden;
         width: 100%;
         padding-top: 5px;
         height: calc(100% - 60px);
