@@ -119,5 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
     $thisWrap.toggleClass("up");
     $(".wrap").not($thisWrap).removeClass("up");
     $(this).find("img").toggleClass("rotate-180");
+    var $otherArrow = $(".wrap").not($thisWrap).find(".btn img");
+    if ($otherArrow.hasClass("rotate-180")) {
+      $otherArrow.removeClass("rotate-180");
+    }
   });
 });
